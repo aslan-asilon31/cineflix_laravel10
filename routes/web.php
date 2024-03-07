@@ -21,6 +21,7 @@ use App\Http\Controllers\WelcomeController;
 // Route::livewire('/', 'welcome.index');
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome.index');
+Route::get('/landing-product-search', [WelcomeController::class, 'search_by_genres'])->name('search_by_genres');
 
 
 Route::view('dashboard', 'dashboard')

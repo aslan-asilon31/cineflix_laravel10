@@ -141,21 +141,93 @@
             <div class="carousel-item active">
               <img src="assets/images/John-Wick-3-1087-347.png" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
-                <h5>John Wick</h5>
+
+                <div class="card-info" >
+
+                    <div class="genre">
+                      <ion-icon name="film"></ion-icon>
+                      <span>Action/Thriller</span>
+                    </div>
+  
+                    <div class="year">
+                      <ion-icon name="calendar"></ion-icon>
+                      <span>2019</span>
+                    </div>
+  
+                    <div class="duration">
+                      <ion-icon name="time"></ion-icon>
+                      <span>2h 11m</span>
+                    </div>
+  
+                    <div class="quality"> 
+                      <ion-icon></ion-icon> 
+                      <span class="span-quality">4K</span> 
+                    </div>
+                </div>
+
+                <h3>John Wick</h3>
                 <p>Chapter 3 - Parabellum</p>
               </div>
             </div>
             <div class="carousel-item">
               <img src="assets/images/jurrasic-park-1087-347.png" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
-                <h5>Jurassic World</h5>
+
+                <div class="card-info" >
+
+                    <div class="genre">
+                      <ion-icon name="film"></ion-icon>
+                      <span>Action/Thriller</span>
+                    </div>
+  
+                    <div class="year">
+                      <ion-icon name="calendar"></ion-icon>
+                      <span>2019</span>
+                    </div>
+  
+                    <div class="duration">
+                      <ion-icon name="time"></ion-icon>
+                      <span>2h 11m</span>
+                    </div>
+  
+                    <div class="quality"> 
+                      <ion-icon></ion-icon> 
+                      <span class="span-quality">4K</span> 
+                    </div>
+                </div>
+
+                <h3>Jurassic World</h3>
                 <p>Fallen Kingdom.</p>
               </div>
             </div>
             <div class="carousel-item">
               <img src="assets/images/spiderman-1087-347.png" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
-                <h5>Spiderman</h5>
+
+                <div class="card-info" >
+
+                    <div class="genre">
+                      <ion-icon name="film"></ion-icon>
+                      <span>Action/Thriller</span>
+                    </div>
+  
+                    <div class="year">
+                      <ion-icon name="calendar"></ion-icon>
+                      <span>2019</span>
+                    </div>
+  
+                    <div class="duration">
+                      <ion-icon name="time"></ion-icon>
+                      <span>2h 11m</span>
+                    </div>
+  
+                    <div class="quality"> 
+                      <ion-icon></ion-icon> 
+                      <span class="span-quality">4K</span> 
+                    </div>
+                </div>
+                
+                <h3>Spiderman</h3>
                 <p>Home Coming</p>
               </div>
             </div>
@@ -188,14 +260,16 @@
 
           <div class="filter-dropdowns">
 
-            <select name="genre" class="genre">
-              <option value="all genres">All genres</option>
-              <option value="action">Action</option>
-              <option value="adventure">Adventure</option>
-              <option value="animal">Animal</option>
-              <option value="animation">Animation</option>
-              <option value="biography">Biography</option>
-            </select>
+            <form action="{{ route('search_by_genres') }}" method="GET">
+              <select id="categorySelect" name="genre" class="genre">
+                  <option value="all genres">All genres</option>
+                  @forelse ($category_masters as $cm)
+                      <option value="{{ $cm->category_master_id }}" name="{{ $cm->category_master_id }}">{{ $cm->name }}</option>
+                  @empty
+                      <option value="action">No categories found</option> @endforelse
+              </select>
+              <button type="submit">Search</button>
+            </form>
 
             <select name="year" class="year">
               <option value="all years">All the years</option>
@@ -511,7 +585,6 @@
           <ul>
 
             <h4 class="link-heading">Help</h4>
-
             <li class="link-item"><a href="#">Account & Billing</a></li>
             <li class="link-item"><a href="#">Plans & Pricing</a></li>
             <li class="link-item"><a href="#">Supported devices</a></li>
@@ -539,12 +612,15 @@
 
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+      $(document).ready(function () {
+          // On change of the category select
 
-
-
-
-
-
+  
+      });
+  </script>
+  
   <!--
     - custom js link
   -->
